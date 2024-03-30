@@ -5,6 +5,8 @@ use App\Http\Config;
 class BaseController {
     public function view($view, array $data)
     {
+        extract($data);
+
         return require_once Config::RESOURCES_PATH . $view . '.php';
     }
 

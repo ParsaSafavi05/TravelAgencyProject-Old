@@ -9,6 +9,7 @@ class DB
     private static $connstr = null;
     private static $query;
     private static $table;
+
     private function __construct()
     {
     }
@@ -52,6 +53,15 @@ class DB
 
     }
 
+    public function select($columns)
+    {
+        if (is_string($columns)) {
+            self::$query = "SELECT $columns FROM ".self::$table;
+        } 
+
+        return $this;
+    }
+
     public function value($column) {
         $result = $this->get($column);
         return $result ? $result[$column] : null;
@@ -76,4 +86,12 @@ class DB
 
         return true;
     }
+
+    public function join($table, $firstColumn, $secondColumn, $alias = null)
+    {
+        $alias = $alias ? $alias : $table; // Use the table name as the alias if not provided
+        self::$query .= " INNER JOIN {$table} AS {$alias} ON {$firstColumn} = {$secondColumn}";
+        return $this;
+    }
+
 }

@@ -79,9 +79,9 @@
                     <a onclick=changeTab(booking) id="booking" href="../booking/index" class="nav-item nav-link" >Booking</a>
                 </div>       
                 
-                <?php
+                
 
-                use App\Models\DB;
+                <!-- use App\Models\DB;
                     session_start();
                     if (isset($_SESSION['UserLoggedIn']) && !empty($_SESSION['UserLoggedIn'])) {
                         
@@ -99,9 +99,10 @@
                     else{
 
                         echo '<a href="../register/index" class="btn btn-primary rounded-pill py-2 px-4">Register</a>';
-
-                    }
-                ?>
+                        
+                    } -->
+                    <a href="../register/index" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
+                
             </div>
         </nav>
 
